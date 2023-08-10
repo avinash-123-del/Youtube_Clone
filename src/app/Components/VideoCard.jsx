@@ -32,7 +32,7 @@ const VideoCard = ({ video }) => {
             <span className="text-[18px] font-bold line-clamp-2">
               {video?.title}
             </span>
-            <span className="text-[15px] font-semibold mt-2 text-white/[0.7] flex items-center">
+            <span className="text-[12px] font-semibold mt-2 text-white/[0.7] flex items-center">
               {video?.author?.title}
               {video?.author?.badges[0]?.type ===
                 "VERIFIED_CHANNEL" && (
