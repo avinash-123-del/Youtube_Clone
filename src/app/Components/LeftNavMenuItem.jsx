@@ -9,7 +9,7 @@ const LeftNavMenuItem = ({text,icon,className,action}) => {
     }
     onClick={action}
 >
-    <span className="text-xl mr-5">{icon}</span>
+    <span className="text-base mr-5">{icon}</span>
     {text}
 </div>
   )
