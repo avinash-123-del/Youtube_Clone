@@ -20,11 +20,11 @@ const LeftNav = () => {
                 return false
             default:
                 break;
-        }
+        } 
     }
     return (
         <div
-            className={`md:block w-[300px] overflow-y-hidden h-full py-4 bg-black absolute md:relative z-10  md:translate-x-0 transition-all ${mobileMenu ? "translate-x-0" : "translate-x-[-300px]"
+            className={`md:block w-[300px] overflow-y-hidden h-full py-4 bg-black absolute md:relative z-10 md:z-0 md:translate-x-0 transition-all ${mobileMenu ? "translate-x-0" : "translate-x-[-300px]"
                 }`}
         >
             <div className="flex px-5 flex-col">

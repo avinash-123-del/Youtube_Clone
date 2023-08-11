@@ -10,6 +10,7 @@ export const AppContext = ({ children }) => {
     const [searchResults, setSearchResults] = useState([])
     const [selectCategory, setSelectCategory] = useState("New")
     const [mobileMenu, setMobileMenu] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('')
 
 
     useEffect(() => {
@@ -29,7 +30,8 @@ export const AppContext = ({ children }) => {
         searchResults, setSearchResults,
         loading, setLoading,
         selectCategory, setSelectCategory,
-        mobileMenu, setMobileMenu
+        mobileMenu, setMobileMenu,
+        searchQuery, setSearchQuery
     }
 
     return <Context.Provider value={value}>

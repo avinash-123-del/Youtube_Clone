@@ -15,14 +15,23 @@ import { Context } from '../context/ContextApi';
 
 
 const Header = () => {
-    const [searchQuery, setSearchQuery] = useState('')
-    const { loading, setMobileMenu, mobileMenu } = useContext(Context)
+    const { loading, setMobileMenu, mobileMenu ,searchQuery, setSearchQuery} = useContext(Context)
+    
     const router = useRouter();
     const searchQueryHandler = (event) => {
-        if ((event?.key === "Enter" || event === "searchButton") && searchQuery?.length > 0) {
+        if ((event?.onKeyPress === "Enter" || event === "searchButton") && searchQuery?.length > 0) {
+            router.push(`/searchResults/${searchQuery}`)
+            
+        }
+    }
+    
+    const handleKeyPress = (e) => {
+        if(e.key === 'Enter' && searchQuery?.length > 0){
+            setSearchQuery(e.target.value)
             router.push(`/searchResults/${searchQuery}`)
         }
     }
+    
     const mobileMenuToggle = () => {
         setMobileMenu(!mobileMenu)
     }
@@ -64,14 +73,18 @@ const Header = () => {
                     />
                 </Link>
             </div>
-            <div className='group flex items-center'>
-                <div className="flex h-8 md:h-10 md:ml-10 md:pl-5 border border-[#303030] rounded-l-3xl group-focus-within:border-blue-500 md:group-focus-within:ml-5 md:group-focus-within:pl-0">
+            <div className='group flex items-center '>
+                <div className="flex h-8 md:h-10 md:ml-10 md:pl-5 border border-[#2f2e2e] rounded-l-3xl group-focus-within:border-blue-500 md:group-focus-within:ml-5 md:group-focus-within:pl-0">
                     <div className="w-10 items-center justify-center hidden group-focus-within:md:flex">
                         <IoIosSearch className="text-white text-xl" />
                     </div>
-                    <input type="text" className='bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]'
+                    <input type="text" className='bg-gray-950 outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]'
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyUp={ handleKeyPress}
+                        placeholder='Search'
                         value={searchQuery} />
+
+
 
                 </div>
                 <button

@@ -48,22 +48,24 @@ const VideoDetails = ({ id }) => {
 const ReactPlayer = dynamic(() => import('react-player/youtube'), { ssr: false });
 
   return (
+
     <div className="flex justify-center flex-row h-[calc(100%-56px)] bg-black">
       {/* <div className="w-full max-w-[1280px] flex flex-col lg:flex-row"> */}
       <div className="w-full max-w-[1700px] flex flex-col lg:flex-row lg:h-[100vh]">
-        <div className="flex flex-col lg:w-[calc(100%-350px)] z-10 xl:w-[calc(100%-300px)] px-4 py-3 lg:py-6 overflow-y-auto">
+        <div className="flex flex-col lg:w-[calc(100%-350px)] z-0 xl:w-[calc(100%-300px)] px-4 py-3 lg:py-6 overflow-y-auto">
           <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id.videoID}`}
               controls
               width="100%"
-              height="100%"
+              height="90%"
               style={{ backgroundColor: "#000000" }}
-              // playing={true}
+              playing={true}
+              
             />
           </div>
           
-          <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
+          <div className="text-white font-bold text-sm md:text-xl mt-2 line-clamp-2">
             {video?.title}
           </div>
           <div className="flex justify-between flex-col md:flex-row mt-4">
